@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +25,22 @@ Route::get('/admin', function(){
     return view('adminP');
 });
 
-Route::get('/111', function(){
-    return view('secretaire');
-});
+Route::get('/111',[RegisterController::class, 'secret'])->name('secret');
+Route::get('/admin',[RegisterController::class, 'view'])->name('admin');
+Route::get('/etudiant/create', [EtudiantController::class, 'create'])->name('etudiant.create');
+
+
+Route::get('/listeE', [EtudiantController::class, 'index'])->name('etudiant.liste');
+Route::post('/etudiant/create', [EtudiantController::class, 'store'])->name('etudiant.store');
+
+
+
 
 Auth::routes();
-
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

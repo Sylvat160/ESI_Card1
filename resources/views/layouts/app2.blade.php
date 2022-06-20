@@ -19,6 +19,7 @@
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    
     <title>Document</title>
 </head>
 <body class="g-sidenav-show  bg-gray-200">

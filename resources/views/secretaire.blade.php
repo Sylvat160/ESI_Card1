@@ -297,12 +297,7 @@
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
+                        <p class="text-xs font-weight-bo••••
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
                       </td>
@@ -319,7 +314,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="}">
         <div class="col-12">
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -332,251 +327,72 @@
                 <table class="table align-items-center justify-content-center mb-0">
                   <thead>
                     <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Prenom</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date de naissance</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Matricule</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Matricule</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cycle</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($students as $student)
                     <tr>
+                      <th>{{$loop->index +1}}</th>
                       <td>
                         <div class="d-flex px-2">
                           <div>
                             <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div>
                           <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Asana</h6>
+                            <h6 class="mb-0 text-sm">{{$student->nom}}</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                        <p class="text-sm font-weight-bold mb-0">{{ $student->prenom }}</p>
                       </td>
                       <td>
-                        <span class="text-xs font-weight-bold">working</span>
+                        <span class="text-xs font-weight-bold">{{ $student->Matricule }}</span>
                       </td>
                       <td class="align-middle text-center">
                         <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
+                          <span class="me-2 text-xs font-weight-bold">{{$student->cycle}}</span>
+                          
                         </div>
                       </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
+                      <td>
+                      <span class="me-2 text-xs font-weight-bold">{{ $student->niveau }}</span>
+
+                      </td>
+                      <td>
+                        <a href="" class="btn btn-info mb-0" style="background: #fff; " title="modifier"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    
+                        <a class="btn btn-info mb-0" style="background: #fff;" title="supprimer">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <!--  -->
+                        </a>
+                        <a href="" class="btn btn-info mb-0" style="background: #fff;" title="generer">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="../assets/img/small-logos/github.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Github</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$5,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">done</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">100%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Atlassian</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$3,400</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">canceled</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">30%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30" style="width: 30%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="../assets/img/small-logos/bootstrap.svg" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Bootstrap</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$14,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">working</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">80%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80" style="width: 80%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Slack</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$1,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">canceled</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">0%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width: 0%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="../assets/img/small-logos/devto.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Devto</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$2,300</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">done</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">100%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
+                    @endforeach
+                   
                   </tbody>
                 </table>
+                <span class="font-weight-bold ms-1"> {{$paginate}} </span> 
               </div>
+              <center>
+                <button class="btn  text-secondary mb-0"><a href="{{route('etudiant.store')}}" style="text-decoration: none;">
+                          <i class="fa fa-plus text-xs"></i> <br> Ajouter </a>
+                </button>
+                </center>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      @include('layouts.footer')
     </div>
   </main>
 
