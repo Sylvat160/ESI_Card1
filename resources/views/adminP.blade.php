@@ -101,12 +101,12 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Secretaire(s)</p>
-                <h4 class="mb-0">10</h4>
+                <h4 class="mb-0">{{ $nombreSecretaires}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"> Recemment Ajoute(e) : </span> Alimatou Sankara</p>
+              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"> Recemment Ajoute(e) : </span> {{$recentlyAddedFormatLastNameSecretaire}}</p>
             </div>
           </div>
         </div>

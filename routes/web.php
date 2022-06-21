@@ -21,23 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function(){
-    return view('adminP');
-});
-
-Route::get('/111',[RegisterController::class, 'secret'])->name('secret');
-Route::get('/admin',[RegisterController::class, 'view'])->name('admin');
+Route::get('/admin', [HomeController::class, 'admin'])->name('admin.dashboard');
+Route::get('/secretaire',[HomeController::class, 'secret'])->name('secretaire');
+// Route::get('/admin',[RegisterController::class, 'view'])->name('admin');
 Route::get('/etudiant/create', [EtudiantController::class, 'create'])->name('etudiant.create');
 
 
-Route::get('/listeE', [EtudiantController::class, 'index'])->name('etudiant.liste');
+Route::get('/liste/etudiant', [EtudiantController::class, 'listeEtudiant'])->name('etudiant.liste');
 Route::post('/etudiant/create', [EtudiantController::class, 'store'])->name('etudiant.store');
-
-
-
-
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 

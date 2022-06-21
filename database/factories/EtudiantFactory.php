@@ -16,10 +16,10 @@ class EtudiantFactory extends Factory
         return [
             'nom' => $this->faker->name,
             'prenom' => $this->faker->name,
-            'Matricule' => $this->faker->phoneNumber,
+            'Matricule' => $this->faker->randomDigitNot(6),
             'cycle' => 'Licence',
             'niveau' => 'Licence 1',
-            'annee_academique' => '2022-2023',
+            'annee_academique' =>'2022 - 2023',
             'created_at' => now(),
         ];
     }

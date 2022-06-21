@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Etudiant extends Model
 {
-    use HasFactory;
+    use HasFactory  ; 
 
     protected $fillable = [
         'nom',
@@ -17,4 +17,5 @@ class Etudiant extends Model
         'niveau',
         'annee_academique',
     ];
+    
 }

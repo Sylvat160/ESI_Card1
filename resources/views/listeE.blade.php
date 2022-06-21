@@ -65,7 +65,7 @@
                 
                             <a class="btn btn-info mb-0" style="background: #fff;" title="supprimer">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                                <form id="form-{{ $etudiant->id }}" action=" {{ route('etudiant.supprimer' , ['etudiant'=>$etudiant->id]) }} " method="post">
+                                <form id="form-{{ $etudiant->id }}" action="" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
                                 </form>
