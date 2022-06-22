@@ -21,6 +21,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('cycle');
             $table->string('niveau');
             $table->string('annee_academique');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

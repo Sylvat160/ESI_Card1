@@ -16,6 +16,8 @@ class Etudiant extends Model
         'cycle',
         'niveau',
         'annee_academique',
+        'email',
+        'photo',
     ];
     
 }

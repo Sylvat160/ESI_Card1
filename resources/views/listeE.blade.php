@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @if(session()->get('success'))
+      <h4>etudiant enregistre</h4>
+    @endif
+
     <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-12">
@@ -23,6 +27,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cycle</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Niveau</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Annee academique</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                     </tr>
                   </thead>
@@ -34,8 +39,11 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                           
+                            <img src="{{asset('storage/'.$etudiant->photo)}}" alt=""class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                          
                           </div>
+                           
                           <div class="my-auto">
                             <h6 class="mb-0 text-sm">{{ $etudiant->nom }}</h6>
                           </div>
@@ -58,6 +66,9 @@
                       </td>
                       <td>
                         <span class="text-xs font-weight-bold">{{ $etudiant->annee_academique }}</span>
+                      </td>
+                      <td>
+                        <span class="text-xs font-weight-bold">{{ $etudiant->email }}</span>
                       </td>
                       <td class="align-middle">
                         

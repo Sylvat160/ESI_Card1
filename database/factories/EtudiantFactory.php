@@ -20,6 +20,7 @@ class EtudiantFactory extends Factory
             'cycle' => 'Licence',
             'niveau' => 'Licence 1',
             'annee_academique' =>'2022 - 2023',
+            'email' => $this->faker->safeEmail,
             'created_at' => now(),
         ];
     }

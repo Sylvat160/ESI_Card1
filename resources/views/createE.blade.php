@@ -9,8 +9,8 @@
                 Enregistrement echouer
             
             @endif
-        </div>
-    <form  method="POST" action="{{route('etudiant.store')}}" style="width:65%;">
+        </div> 
+    <form  method="POST" action="{{route('etudiant.store')}}" style="width:65%;" enctype="multipart/form-data">
         @csrf
     <div class="mb-3">
         <label for="nom" class="form-label">Nom</label>
@@ -37,9 +37,15 @@
         <input type="text" value="2022-2023" name="annee_academique" class="form-control" >
     </div>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="annee_academique" class="form-label">Email</label>
+        <input type="mail" name="email" class="form-control" >
     </div>
+
+    <div class="mb-3">
+    <label for="formFileSm" class="form-label"></label>
+    <input class="form-control form-control-sm" name="photo" id="formFileSm" type="file">
+    </div>
+    
     
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
