@@ -18,12 +18,27 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <!--     Fonts and icons     -->
+     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link rel="stylesheet" href="{{asset('css/nucleo-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nucleo-svg.css')}}">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{asset('css/material-dashboard.css?v=3.0.3')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md  bg-gray-200 shadow-sm" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" style="position: relative; left:150px;">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -42,14 +57,17 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
+                           
+                            
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+                           
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -63,6 +81,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                   
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -70,6 +90,7 @@
                                 </div>
                             </li>
                         @endguest
+
                     </ul>
                 </div>
             </div>
@@ -79,5 +100,30 @@
             @yield('content')
         </main>
     </div>
+
+
+    <!--   Core JS Files   -->
+    <script src="{{asset('js/core/popper.min.js')}}"></script>
+    <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('js/plugins/smooth-scrollbar.min.js')}}"></script>
+    <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
+
+    <script src="{{ asset('js/')}}"></script>
+
+    <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-dashboard.min.js?v=3.0.3"></script>
 </body>
 </html>

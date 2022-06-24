@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Mail\EtudiantMail;
 use Illuminate\Http\Request;
+use App\Mail\EtudiantMarkdownMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class EtudiantController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
         return view('createE');
@@ -44,14 +56,37 @@ class EtudiantController extends Controller
             "niveau" => $request->niveau,
             "annee_academique" => $request->annee_academique,
             "email" => $request->email,
-            'photo'=> $img_path,
+            'photo'=>nullable,
         ]);
         return back()->with('success' , 'Etudiant ajoute avec succes');
         // return redirect()->route('etudiant.liste')->with('success' , 'Etudiant ajoute avec succes');
     }
 
-    public function send(){
+    
+    public function edit (Etudiant $etudiant) {
+
+        $etudiants = Etudiant::all();
+        return view('editEtudiant' , compact('etudiant'));
+    }
+    public function update (Request $request ,Etudiant $etudiant)
+    {
+        $etudiant->update([
+            "nom" => $request->nom,
+            "prenom" => $request->prenom,
+            "Matricule" => $request->Matricule,
+            "cycle" => $request->cycle,
+            "niveau" => $request->niveau,
+            "annee_academique" => $request->annee_academique,
+            "email" => $request->email
+        ]);
+    
+        $etudiant->update($request->all());
+        return redirect()->route('etudiant.liste')->with('success' , 'Modification  reussi');
+    }
+
+    public function send(Request $request){
+        Mail::to($request->email)->send(new EtudiantMarkdownMail());
         
-        return view();
+        return back()->with('success' , 'Mail envoye !');
     }
 }

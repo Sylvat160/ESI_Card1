@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -26,14 +26,17 @@ Route::get('/secretaire',[HomeController::class, 'secret'])->name('secretaire');
 // Route::get('/admin',[RegisterController::class, 'view'])->name('admin');
 Route::get('/etudiant/create', [EtudiantController::class, 'create'])->name('etudiant.create');
 
+// Route::delete('/etudiant/{etudiant}' , [EtudiantController::class , 'delete'])->name('etudiant.supprimer');
+Route::get('/etudiant/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+Route::put('/etudiant/{etudiant}' , [EtudiantController::class , 'update'])->name('etudiant.update');
 
-Route::get('/liste/etudiant', [EtudiantController::class, 'listeEtudiant'])->name('etudiant.liste');
 Route::post('/etudiant/create', [EtudiantController::class, 'store'])->name('etudiant.store');
 Route::get('/liste/etudiant', [EtudiantController::class, 'listeEtudiant'])->name('etudiant.liste');
-Route::post('/etudiant/create', [EtudiantController::class, 'store'])->name('etudiant.store');
+
+Route::get('/envoi.mail' , [EtudiantController::class, 'send'])->name('envoi.mail');
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

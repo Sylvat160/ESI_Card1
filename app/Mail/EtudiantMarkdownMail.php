@@ -2,19 +2,18 @@
 
 namespace App\Mail;
 
+use App\Models\Etudiant;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EtudiantMail extends Mailable
+class EtudiantMarkdownMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $dataEtudiant = [];
-    public $dataDate = [];
-
-
+   
+    
     /**
      * Create a new message instance.
      *
@@ -22,7 +21,7 @@ class EtudiantMail extends Mailable
      */
     public function __construct()
     {
-        
+        //
     }
 
     /**
@@ -32,9 +31,6 @@ class EtudiantMail extends Mailable
      */
     public function build()
     {
-        return $this->from('sylvaintagnabou@gmail.com')
-                    ->subject('Inscription a l\'ESI')
-                    ->view('emails.etudiantMail')
-                    ->attach(public_path('img/ESI.png'));
+        return $this->markdown('emails.markdownEtudiant');
     }
 }

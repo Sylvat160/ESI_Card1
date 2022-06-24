@@ -2,6 +2,7 @@
 
 @section('content')
   @include('layouts.aside')
+  
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -12,7 +13,7 @@
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">  Dashboard</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -25,8 +26,13 @@
             <li class="nav-item d-flex align-items-center me-2">
               <a href="./pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Deconnecter</span>
+                <span class="d-sm-inline d-none"> <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"> Deconnecter </a></span>
               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+              </form>
             </li>
             
             
@@ -101,12 +107,12 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Secretaire(s)</p>
-                <h4 class="mb-0">{{ $nombreSecretaires}}</h4>
+                <h4 class="mb-0">{{ $nombreSecretaires ?? ''}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"> Recemment Ajoute(e) : </span> {{$recentlyAddedFormatLastNameSecretaire}}</p>
+              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"> Recemment Ajoute(e) : </span> {{$recentlyAddedFormatLastNameSecretaire ?? ''}}</p>
             </div>
           </div>
         </div>
@@ -118,7 +124,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Nombre d'etudiants</p>
-                <h4 class="mb-0">{{ $nombreEtudiants }}</h4>
+                <h4 class="mb-0">{{ $nombreEtudiants ?? '' }}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -205,6 +211,9 @@
         </div>
         
       </div>
+      <li class="nav-item" style="list-style: none;">
+        <a class="nav-link" href="{{ route('login') }}" style="background: #f0f2f5; width:400px; color:#8b8d8f; font-weight:bold;">{{ __('Enregistrer un secretaire') }}</a>
+    </li> 
       @include('layouts.footer')
     </div>
   </main>

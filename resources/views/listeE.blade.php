@@ -70,21 +70,31 @@
                       <td>
                         <span class="text-xs font-weight-bold">{{ $etudiant->email }}</span>
                       </td>
-                      <td class="align-middle">
+                      <td class="align-middle" style="display: flex;">
                         
-                            <a href="" class="btn btn-info mb-0" style="background: #fff;" title="modifier"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                
-                            <a class="btn btn-info mb-0" style="background: #fff;" title="supprimer">
+                            <a href="{{ route('etudiant.edit' ,[ 'etudiant'=>$etudiant->id  ] )}}" class="btn btn-info mb-0 me-1" style="background: #fff;" title="modifier"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                            @if(Auth()->user()->admin)
+                            <a class="btn btn-info mb-0 me-1" style="background: #fff;" title="supprimer">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                 <form id="form-{{ $etudiant->id }}" action="" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
                                 </form>
                             </a>
-                            <a href="" class="btn btn-info mb-0" style="background: #fff;" title="generer">
+                            @endif
+                            <a href="" class="btn btn-info mb-0 me-1" style="background: #fff;" title="generer">
                             <i class="fa fa-id-card-o" aria-hidden="true"></i>
 
                             </a>
+
+                            <div class="my-auto">
+                            <form method="get"action="{{ route('envoi.mail' , $etudiant ) }}" style="background: #fff; width:30px">
+                              <input type="hidden" name="email" value="{{ $etudiant->email}}" >
+                              <button type="submit" class="btn btn-info mb-0" name="submit"style="border:none; background:#fff;" value=""><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                            </form>
+                            </div>
+
+                            
                       </td>
                     </tr>
                     @endforeach

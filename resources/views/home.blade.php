@@ -14,10 +14,22 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    
                 </div>
+                
             </div>
+            
         </div>
+        
     </div>
+    @if(Auth()->user()->admin == 0)
+    @include('listeE')
+    @endif
+       
+    
+    @if(Auth()->user()->admin)   
+   
+        @include('adminP')
+    @endif
 </div>
 @endsection
